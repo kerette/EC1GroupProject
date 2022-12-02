@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EC1GroupProject.Models;
+using System.Data.Entity;
 
 namespace EC1GroupProject.Models
 {
@@ -29,6 +30,9 @@ namespace EC1GroupProject.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<AccountModel> Accounts { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
